@@ -18,7 +18,7 @@ export default function Projects() {
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                        Lizard
+                        Jewelry Store website
                     </Typography>
                     <Typography variant="body2" sx={{ color: 'white' }}>
                         Lizards are a widespread group of squamate reptiles, with over 6,000
@@ -38,7 +38,7 @@ export default function Projects() {
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                        Lizard
+                        YelpCamp
                     </Typography>
                     <Typography variant="body2" sx={{ color: 'white' }}>
                         Lizards are a widespread group of squamate reptiles, with over 6,000

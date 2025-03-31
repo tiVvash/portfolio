@@ -17,7 +17,7 @@ export default function Portfolio() {
       <Box
         sx={{
           width: "15vw",
-          backgroundColor: "#121212",
+          backgroundColor: "#1e1e1e",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -30,7 +30,7 @@ export default function Portfolio() {
             key={section}
             variant={activeSection === section ? "contained" : "outlined"}
             onClick={() => setActiveSection(section)}
-            sx={{ width: "80%" }}
+            sx={{ width: "80%", backgroundColor: '#324f06', border: "1px solid black", }}
           >
             {section}
           </Button>
@@ -44,7 +44,7 @@ export default function Portfolio() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#1E1E1E",
+          backgroundColor: "black",
           color: "white",
         }}
       >
