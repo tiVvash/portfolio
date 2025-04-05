@@ -43,7 +43,7 @@ const Profile: React.FC = () => {
                     <TypingEffect text="Welcome to my portfolio!" speed={100} delay={1000} />
                 </Typography>
 
-                <Typography variant="h3">Hi, I'm Tinatin Vashakidze</Typography>
+                <Typography variant="h3">Hi, I am Tinatin Vashakidze</Typography>
                 <Typography variant="h5">Frontend Developer | React | Next.js</Typography>
             </Container>
         </Box>

@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Box, Paper, BottomNavigationAction, Typography } from "@mui/material";
+import { Box, Paper, BottomNavigationAction } from "@mui/material";
 import { Home, Twitter, Notifications, Person } from "@mui/icons-material";
 import Profile from "./Profile";
 import TechStack from "./TechStack";
 import Projects from "./Projects";
+import ContactForm from "./ContactForm";
 
 
 
@@ -15,8 +16,7 @@ const navItems = [
   { label: "Contact", icon: <Home sx={{color: 'white',  '&:hover': { color: '#324f06' }}}/>, color: "#000000" },
 ];
 
-
-export default function Portfolio() {
+const  Portfolio =() => {
     const [selected, setSelected] = useState(0);
     const activeSection = navItems[selected].label;
   
@@ -99,7 +99,7 @@ export default function Portfolio() {
               {activeSection === "Profile" && <Profile />}
               {activeSection === "Tech Stack" && <TechStack />}
               {activeSection === "Projects" && <Projects />}
-              {activeSection === "Contact Me" && <Typography variant="h3">Contact: Email, LinkedIn...</Typography>}
+              {activeSection === "Contact" && <ContactForm/>}
             </motion.div>
           </Box>
         </Box>
@@ -107,3 +107,5 @@ export default function Portfolio() {
     );
   }
   
+
+  export default Portfolio;

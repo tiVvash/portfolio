@@ -1,5 +1,7 @@
 import { Typography } from "@mui/material";
 
-export default function(){
+const YelpCamp =()=>{
     return <Typography variant="h1">YelpCamp</Typography>
 }
+
+export default YelpCamp;

@@ -7,7 +7,7 @@ import BackgroundBeams from "./components/BackgroundBeams";
 import Portfolio from "./components/Portfolio";
 
 
-export default function () {
+const HomePage = () =>  {
   return (<Box>
     {/* Background */}
     <Box sx={{
@@ -25,3 +25,5 @@ export default function () {
 
   )
 }
+
+export default HomePage;

@@ -10,7 +10,7 @@ interface ProjectCardProps {
     link: string;
 }
 
-export default function ProjectCard({ src, title , link}: ProjectCardProps) {
+const ProjectCard=({ src, title , link}: ProjectCardProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const router = useRouter();
 
@@ -79,3 +79,5 @@ export default function ProjectCard({ src, title , link}: ProjectCardProps) {
         </Box>
     );
 }
+
+export default ProjectCard;

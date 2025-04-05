@@ -4,10 +4,10 @@ import ProjectCard from './ProjectCard';
 
 const projects = [
     { name: "YelpCamp", img: "/images/YelpCamp.png", link: "/yelp-camp" },
-    { name: "Recipe Finder", img: "/images/RecipeFinder.png", link: "/recipe-finder" }
+    { name: "Jewelry App", img: "/images/JewelryApp.png", link: "/jewelryApp" }
   ];
 
-export default function Projects() {
+const Projects =() => {
     return (
         <Box>
         <Typography variant="h2">Projects</Typography>
@@ -24,3 +24,4 @@ export default function Projects() {
       </Box>
     );
 }
+export default Projects;
