@@ -10,10 +10,10 @@ import ContactForm from "./ContactForm";
 
 
 const navItems = [
-  { label: "Profile", icon: <Person sx={{color: 'white',  '&:hover': { color: '#324f06' }}} />, color: "#000000" , content: 'Profile'},
-  { label: "Tech Stack", icon: <Twitter sx={{color: 'white',  '&:hover': { color: '#324f06' }}} />, color: "#000000" },
-  { label: "Projects", icon: <Notifications sx={{color: 'white',  '&:hover': { color: '#324f06' }}}/>, color: "#000000" },
-  { label: "Contact", icon: <Home sx={{color: 'white',  '&:hover': { color: '#324f06' }}}/>, color: "#000000" },
+  { label: "Profile", icon: <Person sx={{color: 'white',  '&:hover': { color: '#0e7aa1' }}} />, color: "#000000" , content: 'Profile'},
+  { label: "Tech Stack", icon: <Twitter sx={{color: 'white',  '&:hover': { color: '#0e7aa1' }}} />, color: "#000000" },
+  { label: "Projects", icon: <Notifications sx={{color: 'white',  '&:hover': { color: '#0e7aa1' }}}/>, color: "#000000" },
+  { label: "Contact", icon: <Home sx={{color: 'white',  '&:hover': { color: '#0e7aa1' }}}/>, color: "#000000" },
 ];
 
 const  Portfolio =() => {
@@ -48,7 +48,7 @@ const  Portfolio =() => {
                 width: "70px",
                 height: "70px",
                 borderRadius: "50%",
-                backgroundColor: '#5d733d',
+                backgroundColor: '#4a9db4',
                 zIndex: 1,
               }}
             />
