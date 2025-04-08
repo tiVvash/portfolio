@@ -39,9 +39,11 @@ const ContactForm = () => {
       
 
     return (
-        <Box>
-            <Typography variant="h4" sx={{ mb: 5 }}>Contact Me</Typography>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10 }}>
+        <Box sx={{height: '100vh'}}>
+            <Box sx={{ m: "5vw 0" ,}}>
+            <Typography variant="h2" sx={{fontFamily: "'Playfair Display', serif"}}>Contact Me</Typography>
+            </Box>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10, height: '70vh' }}>
 
                 <Box
                     component="form"
@@ -57,11 +59,12 @@ const ContactForm = () => {
                         onChange={handleChange}
                         required
                         sx={{
-                            border: '1px solid white', input: {
-                                color: 'white',
+                            border: '1px solid white', borderRadius: 5, input: {
+                                color: 'white', 
                             }, '& .MuiInputLabel-root': {
                                 color: 'white',
-                            },
+                            },     '& .MuiOutlinedInput-root': {
+                                borderRadius: 5,}
                         }}
 
                     />
@@ -74,11 +77,12 @@ const ContactForm = () => {
                         onChange={handleChange}
                         required
                         sx={{
-                            border: '1px solid white', input: {
+                            border: '1px solid white',borderRadius: 5, input: {
                                 color: 'white',
                             }, '& .MuiInputLabel-root': {
                                 color: 'white',
-                            },
+                            },   '& .MuiOutlinedInput-root': {
+                                borderRadius: 5,}
                         }}
                     />
 
@@ -91,26 +95,27 @@ const ContactForm = () => {
                         onChange={handleChange}
                         required
                         sx={{
-                            border: '1px solid white', color: 'white', '& textarea': {
+                            border: '1px solid white',borderRadius: 5, color: 'white', '& textarea': {
                                 color: 'white',
                             }, input: {
                                 color: 'white',
                             }, '& .MuiInputLabel-root': {
                                 color: 'white',
                             }, '& .MuiInputLabel-root.Mui-focused': {
-                                color: 'white',
-                            },
+                                color: 'white', 
+                            },  '& .MuiOutlinedInput-root': {
+                                borderRadius: 5,}
                         }}
                     />
 
-                    <Button type="submit" variant="contained" sx={{ backgroundColor: '#4a9db4' }}>Send</Button>
+                    <Button type="submit" variant="contained" sx={{ backgroundColor: '#4a9db4' , borderRadius: 5}}>Send</Button>
                 </Box>
                 <Box>
                     <Typography variant='h5'>
                         Or
                     </Typography>
                 </Box>
-                <Box sx={{ textAlign: 'left' , height: '327px', display: 'flex', flexDirection: 'column', justifyContent: 'space-around'}}>
+                <Box sx={{ textAlign: 'left' , height: '327px', display: 'flex', flexDirection: 'column', justifyContent: 'space-around', backgroundColor: '#1e1e1e', p: 2, borderRadius: 5}}>
 
                     <Typography sx={{display: 'flex' , alignItems: 'center', gap: 2}}>
                         <MailOutlinedIcon />

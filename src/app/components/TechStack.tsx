@@ -9,97 +9,104 @@ const floatingAnimation = {
     repeat: Infinity,
     repeatType: "reverse",
     ease: "easeInOut",
-  } as Transition, 
+  } as Transition,
 };
 
 const icons = [
-    [{ src: "images/HTML.png", alt: "HTML" }],
-    [
-      { src: "images/CSS.png", alt: "CSS" },
-      { src: "images/JS.png", alt: "JavaScript" },
-    ],
-    [
-      { src: "images/TS.png", alt: "TypeScript" },
-      { src: "images/react.png", alt: "React" },
-      { src: "images/Next.svg", alt: "Next.js" },
-      { src: "images/Github.svg", alt: "Github" },
-    ],
-    [
-      { src: "images/Bootstrap.svg", alt: "Bootstrap" },
-      { src: "images/MUI.png", alt: "MUI" },
-    ],
-    [{ src: "images/Figma.svg", alt: "Figma" }],
+  [{ src: "images/HTML.png", alt: "HTML" }],
+  [
+    { src: "images/CSS.png", alt: "CSS" },
+    { src: "images/JS.png", alt: "JavaScript" },
+  ],
+  [
+    { src: "images/TS.png", alt: "TypeScript" },
+    { src: "images/react.png", alt: "React" },
+    { src: "images/Next.svg", alt: "Next.js" },
+    { src: "images/Github.svg", alt: "Github" },
+  ],
+  [
+    { src: "images/Bootstrap.svg", alt: "Bootstrap" },
+    { src: "images/MUI.png", alt: "MUI" },
+  ],
+  [{ src: "images/Figma.svg", alt: "Figma" }],
 ];
 
-const TechStack =() => {
+const TechStack = () => {
   const [hovered, setHovered] = useState<string | null>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-      <Box sx={{ m: "0 0 5vw 0" }}>
-        <Typography variant="h2">Tech Stack</Typography>
+    <Box sx={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{ mt: '5vh', height: '10vh' }}>
+        <Typography variant="h2" sx={{ fontFamily: "'Playfair Display', serif" }}>Tech Stack</Typography>
       </Box>
-
-      {icons.map((row, rowIndex) => (
-        <Box
-          key={rowIndex}
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            mb: 3,
-            width: "100%",
-            gap: "6vw",
-            flexWrap: "wrap",
-          }}
-        >
-          {row.map((icon) => (
-            <motion.div
-              key={icon.alt}
-              animate={floatingAnimation}
-              whileHover={{
-                scale: 1.5,
-                zIndex: 1,
-                transition: { duration: 0.3 },
-              }}
-            >
-              <Box
-                component="img"
-                src={icon.src}
-                alt={icon.alt}
-                sx={{
-                  width: "5vw",
-                  height: "5vw",
+      <Box sx={{
+        height: '85vh',
+        display: 'flex',
+        flexDirection: "column",
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
+        {icons.map((row, rowIndex) => (
+          <Box
+            key={rowIndex}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              mb: 3,
+              width: "100%",
+              gap: "6vw",
+              flexWrap: "wrap",
+            }}
+          >
+            {row.map((icon) => (
+              <motion.div
+                key={icon.alt}
+                animate={floatingAnimation}
+                whileHover={{
+                  scale: 1.5,
+                  zIndex: 1,
+                  transition: { duration: 0.3 },
                 }}
-                onMouseMove={(e) => {
-                  setHovered(icon.alt);
-                  setPosition({ x: e.clientX + 10, y: e.clientY + 10 });
-                }}
-                onMouseLeave={() => setHovered(null)}
-              />
-            </motion.div>
-          ))}
-        </Box>
-      ))}
+              >
+                <Box
+                  component="img"
+                  src={icon.src}
+                  alt={icon.alt}
+                  sx={{
+                    width: "5vw",
+                    height: "5vw",
+                  }}
+                  onMouseMove={(e) => {
+                    setHovered(icon.alt);
+                    setPosition({ x: e.clientX + 10, y: e.clientY + 10 });
+                  }}
+                  onMouseLeave={() => setHovered(null)}
+                />
+              </motion.div>
+            ))}
+          </Box>
+        ))}
 
-      {hovered && (
-        <Box
-          sx={{
-            position: "fixed",
-            top: position.y,
-            left: position.x,
-            backgroundColor: "rgba(0, 0, 0, 0.75)",
-            color: "white",
-            padding: "4px 8px",
-            borderRadius: "4px",
-            fontSize: "0.9rem",
-            pointerEvents: "none",
-            zIndex: 9999,
-          }}
-        >
-          {hovered}
-        </Box>
-      )}
+        {hovered && (
+          <Box
+            sx={{
+              position: "fixed",
+              top: position.y,
+              left: position.x,
+              backgroundColor: "rgba(0, 0, 0, 0.75)",
+              color: "white",
+              padding: "4px 8px",
+              borderRadius: "4px",
+              fontSize: "0.9rem",
+              pointerEvents: "none",
+              zIndex: 9999,
+            }}
+          >
+            {hovered}
+          </Box>
+        )}
+      </Box>
     </Box>
   );
 }

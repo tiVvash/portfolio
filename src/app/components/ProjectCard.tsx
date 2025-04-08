@@ -22,8 +22,8 @@ const ProjectCard=({ src, title , link}: ProjectCardProps) => {
                 layoutId={src}
                 onClick={() => setIsOpen(true)}
                 style={{
-                    width: "300px",
-                    height: "200px",
+                    width: "400px",
+                    height: "250px",
                     borderRadius: "10px",
                     cursor: "pointer",
                 }}
