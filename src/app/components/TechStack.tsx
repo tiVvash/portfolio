@@ -20,7 +20,7 @@ const icons = [
   ],
   [
     { src: "images/TS.png", alt: "TypeScript" },
-    { src: "images/react.png", alt: "React" },
+    { src: "images/React.png", alt: "React" },
     { src: "images/Next.svg", alt: "Next.js" },
     { src: "images/Github.svg", alt: "Github" },
   ],
