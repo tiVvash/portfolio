@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useRouter } from "next/navigation";
+
 
 
 interface ProjectCardProps {
@@ -10,9 +11,20 @@ interface ProjectCardProps {
     link: string;
 }
 
-const ProjectCard=({ src, title , link}: ProjectCardProps) => {
+const ProjectCard = ({ src, title, link }: ProjectCardProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const router = useRouter();
+
+    const theme = useTheme();
+    const isTablet = useMediaQuery('(max-width: 1023px)');// 
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+    const style = {
+        width: isMobile ? '80vw' : isTablet ? '70vw' : '40vw',
+        height: 'auto',
+        borderRadius: '10px',
+        cursor: 'pointer',
+    };
 
     return (
         <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
@@ -21,12 +33,7 @@ const ProjectCard=({ src, title , link}: ProjectCardProps) => {
                 src={src}
                 layoutId={src}
                 onClick={() => setIsOpen(true)}
-                style={{
-                    width: "400px",
-                    height: "250px",
-                    borderRadius: "10px",
-                    cursor: "pointer",
-                }}
+                style={style}
             />
 
             {/* Modal Overlay */}
@@ -56,15 +63,21 @@ const ProjectCard=({ src, title , link}: ProjectCardProps) => {
                             src={src}
                             layoutId={src}
                             style={{
-                                width: "60vw",
+                                width: "80vw",
                                 height: "auto",
-                                maxHeight: "80vh",
+                                maxHeight: "90vh",
                                 borderRadius: "10px",
                                 cursor: "pointer",
                             }}
                         />
-                        <Box sx={{ width: '80vw', height: 'auto' }}>
-                            <Typography variant="h4">{title}</Typography>
+                        <Box sx={{ width: '80vw', height: 'auto' , backgroundColor: '#1e1e1e', borderRadius: '0 0 10px 10px', p: '20px'}}>
+                            <Typography variant="h4" sx={{
+                                fontFamily: "'Playfair Display', serif", '@media (max-width:1024px)': {
+                                    fontSize: '1.6rem'
+                                }, '@media (max-width:767px)': {
+                                    fontSize: '1.4rem'
+                                },
+                            }}>{title}</Typography>
                             <Button
                                 variant="contained"
                                 sx={{ mt: 2 }}

@@ -37,11 +37,18 @@ const TechStack = () => {
 
   return (
     <Box sx={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
-      <Box sx={{ mt: '5vh', height: '10vh' }}>
-        <Typography variant="h2" sx={{ fontFamily: "'Playfair Display', serif" }}>Tech Stack</Typography>
+      <Box sx={{ mt: '5vh'}}>
+        <Typography variant="h2" sx={{
+          fontFamily: "'Playfair Display', serif",
+          '@media (max-width:1024px)': {
+            fontSize: '2.5rem'
+          }, '@media (max-width:767px)': {
+            fontSize: '1.8rem'
+          },
+        }}>Tech Stack</Typography>
       </Box>
       <Box sx={{
-        height: '85vh',
+        height: '90vh',
         display: 'flex',
         flexDirection: "column",
         justifyContent: 'center',
@@ -76,6 +83,8 @@ const TechStack = () => {
                   sx={{
                     width: "5vw",
                     height: "5vw",
+                    '@media (max-width:1024px)': { width: '6vw', height: "6vw", },
+                    '@media (max-width:767px)': { width: '10vw', height: "10vw", }
                   }}
                   onMouseMove={(e) => {
                     setHovered(icon.alt);

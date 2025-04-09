@@ -2,6 +2,7 @@ import { Box, Button, TextField, Typography, Link } from "@mui/material";
 import { useState } from "react";
 import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
 import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
+import { LinkedIn } from "@mui/icons-material";
 
 
 
@@ -18,37 +19,55 @@ const ContactForm = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-      
+
         try {
-          const res = await fetch('/api/contact', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData),
-          });
-      
-          if (res.ok) {
-            alert("Message sent!");
-            setFormData({ name: "", email: "", message: "" });
-          } else {
-            alert("Failed to send message.");
-          }
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+
+            if (res.ok) {
+                alert("Message sent!");
+                setFormData({ name: "", email: "", message: "" });
+            } else {
+                alert("Failed to send message.");
+            }
         } catch (error) {
-          console.error("Error sending message:", error);
+            console.error("Error sending message:", error);
         }
-      };
-      
+    };
+
 
     return (
-        <Box sx={{height: '100vh'}}>
-            <Box sx={{ m: "5vw 0" ,}}>
-            <Typography variant="h2" sx={{fontFamily: "'Playfair Display', serif"}}>Contact Me</Typography>
+        <Box sx={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
+            <Box sx={{ mt: '5vh' }}>
+                <Typography variant="h2" sx={{
+                    fontFamily: "'Playfair Display', serif", '@media (max-width:1024px)': {
+                        fontSize: '2.5rem'
+                    }, '@media (max-width:767px)': {
+                        fontSize: '1.8rem'
+                    }
+                }}>Contact Me</Typography>
             </Box>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10, height: '70vh' }}>
+            <Box sx={{
+                display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 8, height: '90vh', '@media (max-width:1023px)': {
+                    flexDirection: 'column',
+                    gap: 4
+                }
+            }}
+            >
 
                 <Box
                     component="form"
                     onSubmit={handleSubmit}
-                    sx={{ display: "flex", flexDirection: "column", gap: 2, width: 400, maxWidth: 700, mx: "auto", zIndex: 10, color: 'white' }}
+                    sx={{
+                        display: "flex", flexDirection: "column", gap: 2, width: 350, maxWidth: 600, mx: "auto", zIndex: 10, color: 'white', '@media (max-width:1023px)': {
+                            maxWidth: "80vw",
+                        }, '@media (max-width:767px)': {
+                            maxWidth: "80vw",
+                        }
+                    }}
                 >
 
 
@@ -60,11 +79,12 @@ const ContactForm = () => {
                         required
                         sx={{
                             border: '1px solid white', borderRadius: 5, input: {
-                                color: 'white', 
+                                color: 'white',
                             }, '& .MuiInputLabel-root': {
                                 color: 'white',
-                            },     '& .MuiOutlinedInput-root': {
-                                borderRadius: 5,}
+                            }, '& .MuiOutlinedInput-root': {
+                                borderRadius: 5,
+                            }
                         }}
 
                     />
@@ -77,12 +97,13 @@ const ContactForm = () => {
                         onChange={handleChange}
                         required
                         sx={{
-                            border: '1px solid white',borderRadius: 5, input: {
+                            border: '1px solid white', borderRadius: 5, input: {
                                 color: 'white',
                             }, '& .MuiInputLabel-root': {
                                 color: 'white',
-                            },   '& .MuiOutlinedInput-root': {
-                                borderRadius: 5,}
+                            }, '& .MuiOutlinedInput-root': {
+                                borderRadius: 5,
+                            }
                         }}
                     />
 
@@ -95,44 +116,46 @@ const ContactForm = () => {
                         onChange={handleChange}
                         required
                         sx={{
-                            border: '1px solid white',borderRadius: 5, color: 'white', '& textarea': {
+                            border: '1px solid white', borderRadius: 5, color: 'white', '& textarea': {
                                 color: 'white',
                             }, input: {
                                 color: 'white',
                             }, '& .MuiInputLabel-root': {
                                 color: 'white',
                             }, '& .MuiInputLabel-root.Mui-focused': {
-                                color: 'white', 
-                            },  '& .MuiOutlinedInput-root': {
-                                borderRadius: 5,}
+                                color: 'white',
+                            }, '& .MuiOutlinedInput-root': {
+                                borderRadius: 5,
+                            }
                         }}
                     />
 
-                    <Button type="submit" variant="contained" sx={{ backgroundColor: '#4a9db4' , borderRadius: 5}}>Send</Button>
+                    <Button type="submit" variant="contained" sx={{ backgroundColor: '#4a9db4', borderRadius: 5 }}>Send</Button>
                 </Box>
                 <Box>
-                    <Typography variant='h5'>
+                    <Typography variant='h5' sx={{'@media (max-width:1023px)':{fontSize: '1rem'}}}>
                         Or
                     </Typography>
                 </Box>
-                <Box sx={{ textAlign: 'left' , height: '327px', display: 'flex', flexDirection: 'column', justifyContent: 'space-around', backgroundColor: '#1e1e1e', p: 2, borderRadius: 5}}>
+                <Box sx={{ textAlign: 'left', height: '327px', display: 'flex', flexDirection: 'column', justifyContent: 'space-around', backgroundColor: '#1e1e1e', p: 2, borderRadius: 5 , '@media (max-width:1023px)':{maxWidth: '80vw' }
+            }}>
 
-                    <Typography sx={{display: 'flex' , alignItems: 'center', gap: 2}}>
+                    <Typography sx={{ display: 'flex', alignItems: 'center', gap: 2 , }}>
                         <MailOutlinedIcon />
-                        <Link href="mailto:tvash2001@gmail.com" sx={{textDecoration: 'none', color: '#4a9db4', ":hover": {color:'white' }}}>
+                        <Link href="mailto:tvash2001@gmail.com" sx={{ textDecoration: 'none', color: '#4a9db4', ":hover": { color: 'white' } }}>
                             tvash2001@gmail.com
                         </Link>
                     </Typography>
 
-                    <Typography sx={{display: 'flex' , alignItems: 'center', gap: 2}}>
-                        <LocalPhoneOutlinedIcon/>
-                        <Link href="tel:+995598343960" sx={{textDecoration: 'none', color: '#4a9db4', ":hover": {color:'white' }}}>
+                    <Typography sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                        <LocalPhoneOutlinedIcon />
+                        <Link href="tel:+995598343960" sx={{ textDecoration: 'none', color: '#4a9db4', ":hover": { color: 'white' } }}>
                             +995 598 34 39 60
                         </Link>
                     </Typography>
-                    <Typography sx={{display: 'flex' , alignItems: 'center', gap: 2}}>
-                        Linkedin:{' '}
-                        <Link href="https://www.linkedin.com/in/tinatin-vashakidze/" sx={{textDecoration: 'none', color: '#4a9db4', ":hover": {color:'white' }}}>
+                    <Typography sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                        <LinkedIn />
+                        <Link href="https://www.linkedin.com/in/tinatin-vashakidze/" sx={{ textDecoration: 'none', color: '#4a9db4', ":hover": { color: 'white' } , '@media (max-width :1023px)':{wordWrap: 'break-word', whiteSpace: 'normal' ,maxWidth:'60vw' } }}>
                             https://www.linkedin.com/in/tinatin-vashakidze/
                         </Link>
                     </Typography>

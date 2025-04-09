@@ -46,10 +46,10 @@ const Profile: React.FC = () => {
                         mb: '50px',
                         textAlign: 'left',
                         fontFamily: "'Playfair Display', serif",
-                        '@media (max-width:768px)': {
+                        '@media (max-width:1024px)': {
                             fontSize: '2.5rem'
-                        }, '@media (max-width:390px)': {
-                            fontSize: '1.6rem'
+                        }, '@media (max-width:767px)': {
+                            fontSize: '1.8rem'
                         },
                     }}
                 >
@@ -57,9 +57,9 @@ const Profile: React.FC = () => {
                 </Typography>
 
                 <Typography variant="h3" sx={{ mb: '10px',
-                    fontFamily: "'Playfair Display', serif", '@media (max-width:768px)': {
-                        fontSize: '2rem'
-                    }, '@media (max-width:390px)': {
+                    fontFamily: "'Playfair Display', serif", '@media (max-width:1024px)': {
+                        fontSize: '1.8rem'
+                    }, '@media (max-width:767px)': {
                         fontSize: '1.5rem'
                     },
                 }}>Hi, I am Tinatin Vashakidze</Typography>

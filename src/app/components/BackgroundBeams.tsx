@@ -70,7 +70,7 @@ const BackgroundBeams = ({ className }: { className?: string }) => {
       className={`${className} absolute inset-0 flex h-full w-full items-center justify-center`}
       sx={{
         maskRepeat: "no-repeat",
-        maskSize: "40px",
+        maskSize: "40px", height: '100vh', width: '100vw'
       }}
     >
       <svg
@@ -84,7 +84,7 @@ const BackgroundBeams = ({ className }: { className?: string }) => {
         <path
           d="M-380 -189C-380 -189 -312 216 152 343C616 470 684 875 684 875"
           stroke="url(#paint0_radial_242_278)"
-          strokeOpacity="0.1"
+          strokeOpacity="0.8"
           strokeWidth="0.5"
         ></path>
         {paths.map((path, index) => (
@@ -92,7 +92,7 @@ const BackgroundBeams = ({ className }: { className?: string }) => {
             key={`path-${index}`}
             d={path}
             stroke={`url(#linearGradient-${index})`}
-            strokeOpacity="0.5"
+            strokeOpacity="0.8"
             strokeWidth="0.5"
           />
         ))}
