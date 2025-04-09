@@ -16,6 +16,7 @@ const HomePage = () =>  {
       left: 0,
       width: '100vw',
       height: '100vh',
+      backgroundColor: 'black',
       zIndex: -1,
     }}>
       <BackgroundBeams className="background-beams" />
