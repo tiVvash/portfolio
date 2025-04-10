@@ -3,8 +3,8 @@ import { Box, Typography } from '@mui/material';
 import ProjectCard from './ProjectCard';
 
 const projects = [
-  { name: "YelpCamp", img: "/images/YelpCamp.png", link: "/yelp-camp" },
-  { name: "Jewelry App", img: "/images/JewelryApp.png", link: "/jewelryApp" }
+  { name: "YelpCamp", img: "/images/YelpCamp-min.png", link: "/yelp-camp" },
+  { name: "Jewelry App", img: "/images/JewelryApp-min.png", link: "/jewelryApp" }
 ];
 
 const Projects = () => {
