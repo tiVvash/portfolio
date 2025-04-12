@@ -54,6 +54,8 @@ const ContactForm = () => {
                 display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 8, height: '90vh', '@media (max-width:1023px)': {
                     flexDirection: 'column',
                     gap: 4
+                }, '@media (max-width:767px)': {
+                    gap: 1
                 }
             }}
             >
@@ -65,7 +67,7 @@ const ContactForm = () => {
                         display: "flex", flexDirection: "column", gap: 2, width: 350, maxWidth: 600, mx: "auto", zIndex: 10, color: 'white', '@media (max-width:1023px)': {
                             maxWidth: "80vw",
                         }, '@media (max-width:767px)': {
-                            maxWidth: "80vw",
+                            maxWidth: "80vw", 
                         }
                     }}
                 >
@@ -133,29 +135,32 @@ const ContactForm = () => {
                     <Button type="submit" variant="contained" sx={{ backgroundColor: '#4a9db4', borderRadius: 5 }}>Send</Button>
                 </Box>
                 <Box>
-                    <Typography variant='h5' sx={{'@media (max-width:1023px)':{fontSize: '1rem'}}}>
+                    <Typography variant='h5' sx={{ '@media (max-width:1023px)': { fontSize: '1rem',} }}>
                         Or
                     </Typography>
                 </Box>
-                <Box sx={{ textAlign: 'left', height: '327px', display: 'flex', flexDirection: 'column', justifyContent: 'space-around', backgroundColor: '#1e1e1e', p: 2, borderRadius: 5 , '@media (max-width:1023px)':{maxWidth: '80vw' }
-            }}>
+                <Box sx={{
+                    textAlign: 'left', height: '327px', display: 'flex', flexDirection: 'column', justifyContent: 'space-around', backgroundColor: '#1e1e1e', p: 2, borderRadius: 5, '@media (max-width:1023px)': { maxWidth: '80vw' },  '@media (max-width:767px)': {
+                        maxHeight: '300px', 
+                    }
+                }}>
 
-                    <Typography sx={{ display: 'flex', alignItems: 'center', gap: 2 , }}>
+                    <Typography sx={{ display: 'flex', alignItems: 'center', gap: 1, }}>
                         <MailOutlinedIcon />
                         <Link href="mailto:tvash2001@gmail.com" sx={{ textDecoration: 'none', color: '#4a9db4', ":hover": { color: 'white' } }}>
                             tvash2001@gmail.com
                         </Link>
                     </Typography>
 
-                    <Typography sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <Typography sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                         <LocalPhoneOutlinedIcon />
                         <Link href="tel:+995598343960" sx={{ textDecoration: 'none', color: '#4a9db4', ":hover": { color: 'white' } }}>
                             +995 598 34 39 60
                         </Link>
                     </Typography>
-                    <Typography sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <Typography sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                         <LinkedIn />
-                        <Link href="https://www.linkedin.com/in/tinatin-vashakidze/" sx={{ textDecoration: 'none', color: '#4a9db4', ":hover": { color: 'white' } , '@media (max-width :1023px)':{wordWrap: 'break-word', whiteSpace: 'normal' ,maxWidth:'60vw' } }}>
+                        <Link href="https://www.linkedin.com/in/tinatin-vashakidze/" sx={{ textDecoration: 'none', color: '#4a9db4', ":hover": { color: 'white' }, '@media (max-width :1023px)': { wordWrap: 'break-word', whiteSpace: 'normal', maxWidth: '60vw' } }}>
                             https://www.linkedin.com/in/tinatin-vashakidze/
                         </Link>
                     </Typography>
