@@ -128,6 +128,11 @@ const ContactForm = () => {
                                 color: 'white',
                             }, '& .MuiOutlinedInput-root': {
                                 borderRadius: 5,
+                            },
+                            '@media (max-width:767px)': {
+                                maxHeight: '100px', '& .MuiOutlinedInput-root': {
+                                    maxHeight:'100px'
+                                },
                             }
                         }}
                     />
