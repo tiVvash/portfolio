@@ -1,17 +1,23 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Box, Paper, BottomNavigationAction, IconButton, Drawer, useMediaQuery, useTheme } from "@mui/material";
-import { Home, Twitter, Notifications, Person, Menu } from "@mui/icons-material";
+import { Notifications, Person, Menu } from "@mui/icons-material";
 import Profile from "./Profile";
 import TechStack from "./TechStack";
 import Projects from "./Projects";
 import ContactForm from "./ContactForm";
+import CodeOutlinedIcon from '@mui/icons-material/CodeOutlined';
+import FolderSpecialIcon from '@mui/icons-material/FolderSpecial';
+import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
+import Certificates from "./Certificates";
 
 const navItems = [
     { label: "Profile", icon: <Person sx={{ color: 'white', '&:hover': { color: '#0e7aa1' } }} />, color: "#000000", content: 'Profile' },
-    { label: "Tech Stack", icon: <Twitter sx={{ color: 'white', '&:hover': { color: '#0e7aa1' } }} />, color: "#000000" },
-    { label: "Projects", icon: <Notifications sx={{ color: 'white', '&:hover': { color: '#0e7aa1' } }} />, color: "#000000" },
-    { label: "Contact", icon: <Home sx={{ color: 'white', '&:hover': { color: '#0e7aa1' } }} />, color: "#000000" },
+    { label: "Tech Stack", icon: <CodeOutlinedIcon sx={{ color: 'white', '&:hover': { color: '#0e7aa1' } }} />, color: "#000000" },
+    { label: "Projects", icon: <FolderSpecialIcon sx={{ color: 'white', '&:hover': { color: '#0e7aa1' } }} />, color: "#000000" },
+    { label: "Certificates", icon: <MilitaryTechIcon sx={{ color: 'white', '&:hover': { color: '#0e7aa1' } }} />, color: "#000000" },
+    { label: "Contact", icon: <Notifications sx={{ color: 'white', '&:hover': { color: '#0e7aa1' } }} />, color: "#000000" },
+
 ];
 
 const Portfolio = () => {
@@ -72,6 +78,7 @@ const Portfolio = () => {
                         {navItems.map((item, index) => (
                             <Box
                                 key={index}
+                                
                                 sx={{
                                     position: "relative",
                                     width: "100%",
@@ -191,6 +198,7 @@ const Portfolio = () => {
                         {activeSection === "Profile" && <Profile />}
                         {activeSection === "Tech Stack" && <TechStack />}
                         {activeSection === "Projects" && <Projects />}
+                        {activeSection === "Certificates" && <Certificates />}
                         {activeSection === "Contact" && <ContactForm />}
                     </motion.div>
                 </Box>
