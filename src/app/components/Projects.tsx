@@ -3,8 +3,8 @@ import { Box, Typography } from '@mui/material';
 import ProjectCard from './ProjectCard';
 
 const projects = [
-  { name: "YelpCamp", img: "/images/YelpCamp-min.png", link: "/yelp-camp" },
-  { name: "Jewelry App", img: "/images/JewelryApp-min.png", link: "/jewelryApp" }
+  { name: "YelpCamp", img: "/images/YelpCamp-min.png", link: "/yelp-camp", description: 'A full-stack application' },
+  { name: "Jewelry App", img: "/images/JewelryApp-min.png", link: "/jewelryApp" , description: ''}
 ];
 
 const Projects = () => {
@@ -27,6 +27,7 @@ const Projects = () => {
             src={project.img}
             title={project.name}
             link={project.link}
+            description={project.description}
           />
         ))}
       </Box>

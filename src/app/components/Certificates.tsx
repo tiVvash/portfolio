@@ -2,8 +2,8 @@ import { Box, Typography } from '@mui/material'
 import ProjectCard from './ProjectCard';
 
 const projects = [
-    { name: "The Web Developer Bootcamp", img: "/images/TheWebDeveloperBootcamp.jpg", link: "/" },
-    { name: "The HTML and CSS Bootcamp", img: "/images/HTMLCSSBootcamp.jpg", link: "/" }
+    { name: "The Web Developer Bootcamp", img: "/images/TheWebDeveloperBootcamp.jpg", link: "/" , description: ''},
+    { name: "The HTML and CSS Bootcamp", img: "/images/HTMLCSSBootcamp.jpg", link: "/", description: '' }
 ];
 
 const Certificates = () => {
@@ -29,6 +29,7 @@ const Certificates = () => {
                         src={project.img}
                         title={project.name}
                         link={project.link}
+                        description={project.description}
                     />
                 ))}
             </Box>

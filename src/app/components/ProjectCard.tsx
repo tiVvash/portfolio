@@ -9,9 +9,10 @@ interface ProjectCardProps {
     src: string;
     title: string;
     link: string;
+    description: string;
 }
 
-const ProjectCard = ({ src, title, link }: ProjectCardProps) => {
+const ProjectCard = ({ src, title, link, description }: ProjectCardProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const router = useRouter();
 
@@ -78,6 +79,7 @@ const ProjectCard = ({ src, title, link }: ProjectCardProps) => {
                                     fontSize: '1.4rem'
                                 },
                             }}>{title}</Typography>
+                            <Typography>{description}</Typography>
                             <Button
                                 variant="contained"
                                 sx={{ mt: 2 }}
