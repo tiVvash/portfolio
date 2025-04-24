@@ -64,14 +64,14 @@ const ProjectCard = ({ src, title, link, description }: ProjectCardProps) => {
                             src={src}
                             layoutId={src}
                             style={{
-                                width: "80vw",
+                                width: "70vw",
                                 height: "auto",
                                 maxHeight: "90vh",
                                 borderRadius: "10px",
                                 cursor: "pointer",
                             }}
                         />
-                        <Box sx={{ width: '80vw', height: 'auto' , backgroundColor: '#1e1e1e', borderRadius: '0 0 10px 10px', p: '20px'}}>
+                        <Box sx={{ width: '70vw', height: 'auto' , backgroundColor: '#1e1e1e', borderRadius: '0 0 10px 10px', p: '20px'}}>
                             <Typography variant="h4" sx={{
                                 fontFamily: "'Playfair Display', serif", '@media (max-width:1024px)': {
                                     fontSize: '1.6rem'
@@ -85,7 +85,7 @@ const ProjectCard = ({ src, title, link, description }: ProjectCardProps) => {
                                 sx={{ mt: 2 }}
                                 onClick={() => router.push(link)}
                             >
-                                View Project
+                                View More
                             </Button>
                         </Box>
                     </motion.div>

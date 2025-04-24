@@ -1,4 +1,4 @@
-import { Box, Button, TextField, Typography, Link } from "@mui/material";
+import { Box, Button, TextField, Typography, Link ,  Snackbar, Alert} from "@mui/material";
 import { useState } from "react";
 import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
 import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
@@ -13,30 +13,38 @@ const ContactForm = () => {
         message: "",
     });
 
+    const [snackbar, setSnackbar] = useState({
+        open: false,
+        message: '',
+        severity: 'success' as 'success' | 'error',
+    });
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
+  e.preventDefault();
 
-        try {
-            const res = await fetch('/api/contact', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData),
-            });
+  try {
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
 
-            if (res.ok) {
-                alert("Message sent!");
-                setFormData({ name: "", email: "", message: "" });
-            } else {
-                alert("Failed to send message.");
-            }
-        } catch (error) {
-            console.error("Error sending message:", error);
-        }
-    };
+    const data = await res.json();
+
+    if (res.ok) {
+      alert("Message sent!");
+      setFormData({ name: "", email: "", message: "" });
+    } else {
+      alert(data.message || "Failed to send message.");
+    }
+  } catch (error) {
+    console.error("Error sending message:", error);
+  }
+};
+
 
 
     return (
@@ -67,7 +75,7 @@ const ContactForm = () => {
                         display: "flex", flexDirection: "column", gap: 2, width: 350, maxWidth: 600, mx: "auto", zIndex: 10, color: 'white', '@media (max-width:1023px)': {
                             maxWidth: "80vw",
                         }, '@media (max-width:767px)': {
-                            maxWidth: "80vw", 
+                            maxWidth: "80vw",
                         }
                     }}
                 >
@@ -131,7 +139,7 @@ const ContactForm = () => {
                             },
                             '@media (max-width:767px)': {
                                 maxHeight: '100px', '& .MuiOutlinedInput-root': {
-                                    maxHeight:'100px'
+                                    maxHeight: '100px'
                                 },
                             }
                         }}
@@ -140,13 +148,13 @@ const ContactForm = () => {
                     <Button type="submit" variant="contained" sx={{ backgroundColor: '#4a9db4', borderRadius: 5 }}>Send</Button>
                 </Box>
                 <Box>
-                    <Typography variant='h5' sx={{ '@media (max-width:1023px)': { fontSize: '1rem',} }}>
+                    <Typography variant='h5' sx={{ '@media (max-width:1023px)': { fontSize: '1rem', } }}>
                         Or
                     </Typography>
                 </Box>
                 <Box sx={{
-                    textAlign: 'left', height: '327px', display: 'flex', flexDirection: 'column', justifyContent: 'space-around', backgroundColor: '#1e1e1e', p: 2, borderRadius: 5, '@media (max-width:1023px)': { maxWidth: '80vw' },  '@media (max-width:767px)': {
-                        maxHeight: '300px', 
+                    textAlign: 'left', height: '327px', display: 'flex', flexDirection: 'column', justifyContent: 'space-around', backgroundColor: '#1e1e1e', p: 2, borderRadius: 5, '@media (max-width:1023px)': { maxWidth: '80vw' }, '@media (max-width:767px)': {
+                        maxHeight: '300px',
                     }
                 }}>
 
@@ -171,6 +179,21 @@ const ContactForm = () => {
                     </Typography>
                 </Box>
             </Box>
+            <Snackbar
+                open={snackbar.open}
+                autoHideDuration={4000}
+                onClose={() => setSnackbar({ ...snackbar, open: false })}
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+            >
+                <Alert
+                    onClose={() => setSnackbar({ ...snackbar, open: false })}
+                    severity={snackbar.severity}
+                    variant="filled"
+                    sx={{ width: '100%' }}
+                >
+                    {snackbar.message}
+                </Alert>
+            </Snackbar>
         </Box>
     );
 }
