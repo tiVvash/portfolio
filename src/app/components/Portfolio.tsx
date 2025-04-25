@@ -78,7 +78,7 @@ const Portfolio = () => {
                         {navItems.map((item, index) => (
                             <Box
                                 key={index}
-                                
+
                                 sx={{
                                     position: "relative",
                                     width: "100%",
@@ -102,10 +102,10 @@ const Portfolio = () => {
                                 <BottomNavigationAction
                                     label={item.label}
                                     icon={item.icon}
-                                    onClick={() => setSelected(index)}  
+                                    onClick={() => setSelected(index)}
                                     sx={{
                                         opacity: selected === index ? 1 : 0.7,
-                                        zIndex: 2, 
+                                        zIndex: 2,
                                     }}
                                 />
                             </Box>
